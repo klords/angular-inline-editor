@@ -10,7 +10,7 @@ const SELECT_CONTROL_VALUE_ACCESSOR = {
 @Component({
   selector: 'select-editor',
   template: `<div *ngIf="editing" (clickOutside)="emptyMethod()">
-  <label class="col-form-label">{{label}}</label>
+  <label *ngIf="label" class="col-form-label">{{label}}</label>
   <div class="input-group">
       <input type="text" #selectEditorControl class="form-control"  [class.is-invalid]="selectReqflag" (click)="showSelectOptions()" readonly [value]="value | displayName:displayValue">
       <span class="input-group-btn">
@@ -31,7 +31,7 @@ const SELECT_CONTROL_VALUE_ACCESSOR = {
 </div>
 <div *ngIf="!editing">
   <div class="form-group">
-      <label class="col-form-label">{{label}}</label>
+      <label *ngIf="label" class="col-form-label">{{label}}</label>
       <div *ngIf="IsSelectEmpty()" (click)="edit(value)" (focus)="edit(value);" tabindex="0" class="inline-edit-empty">{{placeholder}}&nbsp;  </div>
       <div *ngIf="!IsSelectEmpty()" (click)="edit(value)" (focus)="edit(value);" tabindex="0" [ngClass]="disabled == 'true' ? 'inline-no-edit' : 'inline-edit'">{{GetDisplayText(value)}}&nbsp;</div>
   </div>

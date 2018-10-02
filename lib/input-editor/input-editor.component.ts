@@ -10,7 +10,7 @@ const INLINE_EDIT_CONTROL_VALUE_ACCESSOR = {
 @Component({
   selector: 'input-editor',
   template: `<div *ngIf="editing">
-  <label class="col-form-label">{{label}}</label>
+  <label *ngIf="label" class="col-form-label">{{label}}</label>
   <div class="input-group">
       <input #inputEditorControl class="form-control" [class.is-invalid]="inputReqflag" [required]="required" [id]="id" [(ngModel)]="value" type="text" [placeholder]="placeholder"
           [maxlength]="stringlength">
@@ -29,7 +29,7 @@ const INLINE_EDIT_CONTROL_VALUE_ACCESSOR = {
 </div>
 <div *ngIf="!editing">
   <div class="form-group">
-      <label class="col-form-label">{{label}}</label>
+      <label *ngIf="label" class="col-form-label">{{label}}</label>
       <div *ngIf="IsInputTextEmpty()" (click)="edit(value)" (focus)="edit(value);" tabindex="0" class="inline-edit-empty">
           {{placeholder}}&nbsp;
       </div>
@@ -150,7 +150,7 @@ export class InputEditorComponent implements ControlValueAccessor, OnInit {
   }
 
   IsInputTextEmpty(): Boolean{
-    return (this._value === undefined || this._value == '');
+    return (this._value === undefined || this._value === '' || this._value === null);
   }
 
   ngOnInit() {

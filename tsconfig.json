@@ -14,7 +14,8 @@
         "forceConsistentCasingInFileNames": true,
     },
     "exclude": [
-        "demo/**/*"
+        "demo/**/*",
+        "dist"
     ],
     "angularCompilerOptions": {
       "genDir": "dist",

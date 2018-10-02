@@ -1,5 +1,5 @@
 <div *ngIf="editing">
-    <label class="col-form-label">{{label}}</label>
+    <label *ngIf="label" class="col-form-label">{{label}}</label>
     <div class="input-group">
         <input #inputEditorControl class="form-control" [class.is-invalid]="inputReqflag" [id]="id" [(ngModel)]="value" type="text" [placeholder]="placeholder"
             [maxlength]="stringlength">
@@ -18,7 +18,7 @@
 </div>
 <div *ngIf="!editing">
     <div class="form-group">
-        <label class="col-form-label">{{label}}</label>
+        <label *ngIf="label" class="col-form-label">{{label}}</label>
         <div *ngIf="IsInputTextEmpty()" (click)="edit(value)" (focus)="edit(value);" tabindex="0" class="inline-edit-empty">
             {{placeholder}}&nbsp;
         </div>
