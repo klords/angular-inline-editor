@@ -167,18 +167,10 @@ export class SelectEditorComponent implements ControlValueAccessor, OnInit {
     return opt[this.dataValue] === this.value[this.dataValue]
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   GetDisplayText(c: any): string {
-    return c[this.displayValue];
-
-    // for (var i = 0; i < this.options.length; i++) {
-    //   if (this.options[i][this.dataValue] == c) {
-    //     return this.options[i][this.displayValue];
-    //   }
-    // }
+    return c ? c[this.displayValue] : '';
   }
 
   IsSelectEmpty(): Boolean{
